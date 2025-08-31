@@ -13,6 +13,8 @@ for (const heartIcon of heartIcons) {
   })
 }
 
+// callButton function
+
 const callButtons = document.getElementsByClassName("call-btn");
 for (const callButton of callButtons) {
   callButton.addEventListener("click", function () {
@@ -28,9 +30,9 @@ for (const callButton of callButtons) {
       const TotalCoinCount = coinCount - 20;
       coinCountElement.innerText = TotalCoinCount;
       alert(` Calling ${subTitle} ${number}`)
-      const historyBoxContainer = getElement("history-box");
+      const historyBoxContainer = getElement("history-box-content");
       const historyBox = document.createElement("div");
-      historyBox.innerHTML = `<div
+      historyBoxContent.innerHTML = `<div
           class="card-box flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 gap-3 m-4 rounded-xl bg-[#FAFAFA]"
         >
           <div class="title">
@@ -43,33 +45,14 @@ for (const callButton of callButtons) {
             <h1 class="text-xs md:text-sm text-gray-600">${new Date().toLocaleTimeString()}</h1>
           </div>
         </div>`
-      historyBoxContainer.appendChild(historyBox);
+      historyBoxContainer.appendChild(historyBoxContent);
     } else {
       alert("You've not sufficient coin.You need atleast 20 coin");
     }
   });
 };
 
-// const copyBtns = document.getElementsByClassName("copy-btn");
-
-// for (const copyBtn of copyBtns) {
-//   copyBtn.addEventListener("click", function () {
-//     const card = copyBtn.closest(".card");
-//     const number = card.querySelector("h1").innerText;
-
-//     navigator.clipboard.writeText(number);
-
-//     const copyCountElement = getElement("fa-copy");
-//     const copyCount = parseInt(copyCountElement.innerText);
-
-//     alert(`নম্বরটি কপি করা হয়েছে: ${number}`);
-
-//     const totalCopyCount = copyCount + 1;
-//     copyCountElement.innerText = totalCopyCount;
-//   });
-// }
-
-
+// copy count function
 
 const copyBtns = document.getElementsByClassName('copy-btn');
 
@@ -90,21 +73,13 @@ for (const copyBtn of copyBtns) {
   });
 }
 
-
-
-
-
-
-
-
-
-
-
 // clear history
 
-// const cardContainer = getElement("card-container");
-// cardContainer.addEventListener("click", function () {
-//   const historyCardContainer = getElement("history-card");
-//   historyCardContainer.innerHTML = "";
-// })
+const clearBtn = getElement("clear-history");
+const historyBoxContent = getElement("history-box-content");
+
+clearBtn.addEventListener("click", function () {
+  historyBoxContent.innerHTML = ``;
+});
+
 
