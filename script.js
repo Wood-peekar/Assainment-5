@@ -48,5 +48,63 @@ for (const callButton of callButtons) {
       alert("You've not sufficient coin.You need atleast 20 coin");
     }
   });
+};
+
+// const copyBtns = document.getElementsByClassName("copy-btn");
+
+// for (const copyBtn of copyBtns) {
+//   copyBtn.addEventListener("click", function () {
+//     const card = copyBtn.closest(".card");
+//     const number = card.querySelector("h1").innerText;
+
+//     navigator.clipboard.writeText(number);
+
+//     const copyCountElement = getElement("fa-copy");
+//     const copyCount = parseInt(copyCountElement.innerText);
+
+//     alert(`নম্বরটি কপি করা হয়েছে: ${number}`);
+
+//     const totalCopyCount = copyCount + 1;
+//     copyCountElement.innerText = totalCopyCount;
+//   });
+// }
+
+
+
+const copyBtns = document.getElementsByClassName('copy-btn');
+
+for (const copyBtn of copyBtns) {
+  copyBtn.addEventListener('click', function () {
+    const card = copyBtn.closest('.card');
+    const number = card.querySelector('h1').innerText;
+    navigator.clipboard.writeText(number);
+
+    const copyCountElement = getElement('fa-copy');
+    const copyCount = parseInt(copyCountElement.innerText);
+
+    alert(`Number copied ${number}`);
+
+    const TotalCopyCount = copyCount + 1;
+    copyCountElement.innerText = TotalCopyCount;
+
+  });
 }
+
+
+
+
+
+
+
+
+
+
+
+// clear history
+
+// const cardContainer = getElement("card-container");
+// cardContainer.addEventListener("click", function () {
+//   const historyCardContainer = getElement("history-card");
+//   historyCardContainer.innerHTML = "";
+// })
 
