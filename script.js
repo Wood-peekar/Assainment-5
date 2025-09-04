@@ -30,9 +30,9 @@ for (const callButton of callButtons) {
       const TotalCoinCount = coinCount - 20;
       coinCountElement.innerText = TotalCoinCount;
       alert(` Calling ${subTitle} ${number}`)
-      const historyBoxContainer = getElement("history-box-content");
+      const historyBoxContainer = getElement("history-box");
       const historyBox = document.createElement("div");
-      historyBoxContent.innerHTML = `<div
+      historyBox.innerHTML = `<div
           class="card-box flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 gap-3 m-4 rounded-xl bg-[#FAFAFA]"
         >
           <div class="title">
@@ -45,7 +45,7 @@ for (const callButton of callButtons) {
             <h1 class="text-xs md:text-sm text-gray-600">${new Date().toLocaleTimeString()}</h1>
           </div>
         </div>`
-      historyBoxContainer.appendChild(historyBoxContent);
+      historyBoxContainer.appendChild(historyBox);
     } else {
       alert("You've not sufficient coin.You need atleast 20 coin");
     }
@@ -76,10 +76,11 @@ for (const copyBtn of copyBtns) {
 // clear history
 
 const clearBtn = getElement("clear-history");
-const historyBoxContent = getElement("history-box-content");
+const historyBoxContainer = getElement("history-box");
 
 clearBtn.addEventListener("click", function () {
-  historyBoxContent.innerHTML = ``;
+  historyBoxContainer.innerHTML = ``;
+  console.log(historyBoxContainer.innerHTML = ``)
 });
 
 
